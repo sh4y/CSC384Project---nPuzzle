@@ -50,7 +50,7 @@ class nPuzzleState(StateSpace):
         return xy1[0][0] == xy2[0][0]
 
     def hashable_state(self):
-        return hash(self.positions)
+        return tuple(self.positions)
 
     def state_string(self):
         """
@@ -128,10 +128,3 @@ class Direction():
     def move_and_swap(self, pos, eb_pos):
         pos[eb_pos], pos[eb_pos + self.delta] = pos[eb_pos + self.delta], pos[eb_pos]
         return pos
-
-
-test = nPuzzleState("START", 0, None, 3, [1,2,3,4,5,6,7,8,-1])
-print(npuzzle_goal_state(test))
-test.print_state()
-for t in test.successors():
-    t.print_state()
