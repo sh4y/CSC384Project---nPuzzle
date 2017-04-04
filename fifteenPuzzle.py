@@ -87,7 +87,7 @@ def move_and_swap(pos, eb_pos, delta):
     pos[eb_pos], pos[eb_pos + delta] = pos[eb_pos + delta], pos[eb_pos]
     return pos
 
-def eightpuzzle_goal_state(state):
+def fifteenpuzzle_goal_state(state):
     """
     Return True if we have reached a goal state.
 
