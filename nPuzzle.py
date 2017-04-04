@@ -71,6 +71,12 @@ class nPuzzleState(StateSpace):
         print("ACTION was " + self.action)
         print(self.state_string())
 
+    def get_goal_state(self):
+        size = self.size ** 2
+        l = list(range(1, size))
+        l.append(-1)
+        return l
+
 def npuzzle_goal_state(state):
     """
     Return True if we have reached a goal state.
