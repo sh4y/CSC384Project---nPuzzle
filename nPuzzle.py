@@ -62,7 +62,10 @@ class nPuzzleState(StateSpace):
             if i % self.size is 0:
                 end = "\n"
             else:
-                end = ''
+                if(number is not "_") and (int(number) > 9):
+                    end = ''
+                else:
+                    end = ' '
             s += number + " " + end
 
         return s
@@ -72,10 +75,13 @@ class nPuzzleState(StateSpace):
         print(self.state_string())
 
     def get_goal_state(self):
-        size = self.size ** 2
-        l = list(range(1, size))
-        l.append(-1)
-        return l
+        if self.size is 3:
+            return [1,2,3,4,5,6,7,8,-1]
+        if self.size is 4:
+            return [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,-1]
+        if self.size is 5:
+            return [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,-1]
+
 
 def npuzzle_goal_state(state):
     """
@@ -84,10 +90,7 @@ def npuzzle_goal_state(state):
     :param state: a nPuzzle state
     :return: True (if goal) or False (if not)
     """
-    size = state.size ** 2
-    l = list(range(1, size))
-    l.append(-1)
-    return state.positions == l
+    return state.positions == state.get_goal_state()
 
 
 

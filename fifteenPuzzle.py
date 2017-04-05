@@ -95,8 +95,3 @@ def fifteenpuzzle_goal_state(state):
     :return: True (if goal) or False (if not)
     """
     return state.positions == state.get_goal_state()
-
-test = fifteenPuzzleState("START", 0, None, [2,9,3,4,12,-1,10,5,15,1,14,8,6,13,11,7])
-print(test.state_string())
-for x in test.successors():
-    print(x.state_string())

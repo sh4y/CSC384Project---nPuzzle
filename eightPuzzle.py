@@ -91,8 +91,3 @@ def eightpuzzle_goal_state(state):
     :return: True (if goal) or False (if not)
     """
     return state.positions == state.get_goal_state()
-
-test = eightPuzzleState("START", 0, None, [2,-1,4,5,8,3,6,7,1])
-print(test.state_string())
-for x in test.successors():
-    print(x.state_string())
